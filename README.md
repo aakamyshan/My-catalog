@@ -1,16 +1,17 @@
-# React + Vite
+# Лабораторна робота: Каталог Фільмів на React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Інтерактивний застосунок-каталог фільмів, створений на базі бібліотеки React та інструменту збірки Vite згідно з технічним завданням.
 
-Currently, two official plugins are available:
+## Функціонал застосунку
+* **Завантаження з API:** Отримання стартових даних за допомогою асинхронного запиту (`fetch`) з використанням `useEffect` та `AbortController`.
+* **Пошук:** Контрольований інпут для миттєвої фільтрації фільмів за назвою.
+* **Сортування:** Можливість сортування карток за рейтингом та роком випуску.
+* **Додавання даних:** Інтерактивна форма для створення нових карток фільмів з валідацією полів та `e.preventDefault()`.
+* **Видалення даних:** Інтерактивна дія на картці для її видалення зі списку (іммутабельне оновлення стану).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Технічні особливості архітектури
+* Тільки **функціональні компоненти** та вбудовані хуки (`useState`, `useEffect`).
+* Повна **деструктуризація props** у параметрах компонентів.
+* Обов'язкове використання пропу **`children`** в універсальному компоненті-обгортці `<Container />`.
+* Реалізовано **умовний рендеринг** (Conditional Rendering) для 4 станів інтерфейсу: завантаження, помилка, порожній результат пошуку, виведення списку даних.
+* Для рендерингу списків використано метод `.map()` з унікальними пропсами `key` (на основі ID елементів, без використання індексів масиву).
